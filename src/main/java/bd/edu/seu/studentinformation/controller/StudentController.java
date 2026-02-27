@@ -2,16 +2,17 @@ package bd.edu.seu.studentinformation.controller;
 
 import bd.edu.seu.studentinformation.model.Name;
 import bd.edu.seu.studentinformation.model.Student;
+import bd.edu.seu.studentinformation.model.StudentDto;
 import bd.edu.seu.studentinformation.repository.StudentRepository;
 import bd.edu.seu.studentinformation.service.StudentService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/api/student-information-2")
 public class StudentController {
 
     private final StudentService studentService;
@@ -20,16 +21,9 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "student-info";
-    }
-
-    @PostMapping("save")
-    public String save(@ModelAttribute Student student,
-                       Model model) {
-
-        Student save = studentService.save(student);
-        return "success";
+    @PostMapping
+    public ResponseEntity<Student> addedStudent(@RequestBody StudentDto studentDto) {
+        Student savedStudent = studentService.addStudent(studentDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedStudent);
     }
 }

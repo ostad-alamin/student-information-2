@@ -1,27 +1,50 @@
 package bd.edu.seu.studentinformation.model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@JsonPropertyOrder({"id", "name", "program", "batch"})
 @Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "name_id")
     private Name name;
     private String program;
     private String batch;
 
-    public Student(Name name, String program, String batch) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public void setName(Name name) {
         this.name = name;
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program) {
         this.program = program;
+    }
+
+    public String getBatch() {
+        return batch;
+    }
+
+    public void setBatch(String batch) {
         this.batch = batch;
     }
 }
