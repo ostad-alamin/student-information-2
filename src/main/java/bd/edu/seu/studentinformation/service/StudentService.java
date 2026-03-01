@@ -2,7 +2,7 @@ package bd.edu.seu.studentinformation.service;
 
 import bd.edu.seu.studentinformation.model.Name;
 import bd.edu.seu.studentinformation.model.Student;
-import bd.edu.seu.studentinformation.model.StudentDto;
+import bd.edu.seu.studentinformation.dto.StudentDto;
 import bd.edu.seu.studentinformation.repository.NameRepository;
 import bd.edu.seu.studentinformation.repository.StudentRepository;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package bd.edu.seu.studentinformation.model;
+package bd.edu.seu.studentinformation.dto;
 
 public class StudentDto {
     private String firstName;

@@ -1,14 +1,10 @@
 package bd.edu.seu.studentinformation.controller;
 
-import bd.edu.seu.studentinformation.model.Name;
 import bd.edu.seu.studentinformation.model.Student;
-import bd.edu.seu.studentinformation.model.StudentDto;
-import bd.edu.seu.studentinformation.repository.StudentRepository;
+import bd.edu.seu.studentinformation.dto.StudentDto;
 import bd.edu.seu.studentinformation.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
